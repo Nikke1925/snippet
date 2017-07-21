@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Scrollify</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.scrollify.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <section class="section js-section section-1" id="jsi-section1" >
+        <div class="section-content">
+          <h2>section 1</h2>
+        </div>
+      </section>
+      <section class="section js-section section-2" id="jsi-section2">
+        <div class="section-content">
+          <h2>section 2</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab quae, sint dicta quod, nemo possimus! Impedit sed rerum quidem, voluptate possimus quo accusamus vitae necessitatibus incidunt ut fugit nihil voluptatem.</p>
+          <h3>heading</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab quae, sint dicta quod, nemo possimus! Impedit sed rerum quidem, voluptate possimus quo accusamus vitae necessitatibus incidunt ut fugit nihil voluptatem.</p>
+          <h3>heading</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab quae, sint dicta quod, nemo possimus! Impedit sed rerum quidem, voluptate possimus quo accusamus vitae necessitatibus incidunt ut fugit nihil voluptatem.</p>
+          <h3>heading</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab quae, sint dicta quod, nemo possimus! Impedit sed rerum quidem, voluptate possimus quo accusamus vitae necessitatibus incidunt ut fugit nihil voluptatem.</p>
+        </div>
+      </section>
+      <section class="section js-section section-3" id="jsi-section3">
+        <div class="section-content">
+          <h2>section 3</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor reprehenderit, labore nostrum hic. Natus hic corporis, delectus vero voluptatem maxime voluptate tempora expedita quo iure atque vitae deserunt culpa quibusdam!</p>
+        </div>
+      </section>
+      <ul class="pager" id="js-pager"></ul>
+    </div>
+  </body>
+  <script type="text/javascript">
+    var $section = $('.js-section');
+    var $pager = $('#js-pager');
+    var option = {
+      section : '.js-section',
+      easing: "swing",
+      scrollSpeed: 600,
+      scrollbars: true,
+      before:function(index) {
+        pagerCurrent(index);
+      },
+      afterRender:function() {
+        createPager();
+      }
+    };
+
+    function pagerCurrent(index = 0) {
+      var $li = $pager.find('li');
+      $li.removeClass('is-current');
+      $li.eq(index).addClass('is-current');
+    }
+
+    function createPager() {
+      $section.each(function(i, e){
+        // ページ内リンク先の作成
+        var sectionName = $(e).attr('id');
+        // 最初のliにはクラスを付与
+        var addClass = '';
+        if (i === 0) {
+            addClass = 'is-current';
+        }
+        // liのHTML作成
+        var html = '';
+        html += '<li class="' + addClass + '">';
+        html += '<a href="#' + sectionName + '"></a>';
+        html += '</li>';
+        $pager.append(html);
+      });
+
+      pagerLink();
+    }
+
+    function pagerLink () {
+      $pager.find('a').on('click', function() {
+        $.scrollify.move($(this).attr("href"));
+      });
+    }
+
+    $(function() {
+      $.scrollify(option);
+    });
+  </script>
+</html>

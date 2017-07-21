@@ -1,0 +1,66 @@
+/*********************
+001_PAGER
+*********************/
+.main {
+  position: relative;
+}
+
+.pager {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  padding: 0;
+}
+
+.pager li {
+  display: block;
+  margin: 20px;
+}
+
+.pager li a {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.pager .is-current a {
+  background: #232323;
+}
+
+/*********************
+002_SECTION
+*********************/
+.section {
+  width: 100%;
+}
+
+.section .section-content {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 40px 60px;
+  text-align: center;
+}
+
+.section-1 {
+  background: url("a.jpg") no-repeat top left/cover;
+}
+
+h2 {
+  color: #232323;
+}
+
+h2:first-child {
+  margin-top: 0;
+}
+
+h3 {
+  color: #232323;
+}
+
+p {
+  color: #232323;
+}
