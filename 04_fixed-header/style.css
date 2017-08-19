@@ -1,0 +1,60 @@
+/*********************
+000_RESET
+*********************/
+body {
+  margin: 0;
+}
+
+/*********************
+001_HEADER
+*********************/
+.header .header-menu {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.header .header-menu-list {
+  list-style-type: none;
+  width: 960px;
+  margin: 0px auto;
+  padding: 0;
+}
+
+.header .header-menu-list li {
+  width: 20%;
+  float: left;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.header .header-menu-list li a {
+  display: block;
+  width: 100%;
+  padding: 20px 0;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.header .header-menu-list li a:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/*********************
+002_MAIN
+*********************/
+.main {
+  display: block;
+  height: 3000px;
+  background: url("a.jpg") no-repeat top center/cover;
+}
